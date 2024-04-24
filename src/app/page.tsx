@@ -1,113 +1,188 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { FaArrowRight } from "react-icons/fa6";
+import { IoCheckmark, IoCheckmarkSharp } from "react-icons/io5";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardTitle,
+} from "@/components/ui/card";
+import { FaQuoteLeft } from "react-icons/fa";
+
+const team = [
+    {
+        content: `
+    Victor is a product manager with a very keen obsession
+     for the growth of early stage startups in Africa. Clearly,
+     startups have become one of the key contributors and drivers
+     of Africa's modern economy however the early stages are the most
+     critical to their survival. He started his career in Management Consulting,
+      then product marketing before he fully made a transition into Technology.
+       As a product manager he has led product teams in Health-Tech, Fintech,
+       Prop-Tech and Sports-Tech in their early-stage phase. Outside leading product teams,
+       he is also an African Research Councilor at Wheeler Institute of Business and Technology,
+       London Business School and an Entrpreneur.
+  `,
+        designation: "Product Manager",
+        img: "/assets/victor.jpeg",
+        name: "Victor",
+    },
+];
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <>
+            <section className='container mx-auto px-4'>
+                <div className='max-w-[720px] py-12 mx-auto'>
+                    <h1 className='font-montserrat text-2xl lg:text-4xl font-bold text-center '>
+                        Empower Teams to Create Outstanding Products, Anytime
+                    </h1>
+                    <p className='font-montserrat text-base  lg:text-xl text-center mt-5'>
+                        We&apos;re a global network of elite product and
+                        technology experts poised to advance your key software
+                        projects.
+                    </p>
+                    <div className='flex justify-center mt-10 gap-4'>
+                        <Button
+                            variant={"outline"}
+                            className=' flex gap-3 items-center  font-semibold rounded-[18px] '
+                        >
+                            Get Started
+                            <MdOutlineArrowOutward />
+                        </Button>
+                        <Button className='bg-primary text-secondary  font-semibold flex gap-3 items-center rounded-[18px] '>
+                            Learn More
+                            <FaArrowRight />
+                        </Button>
+                    </div>
+                </div>
+            </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <section className='bg-primary text-secondary'>
+                <div className='container mx-auto px-4'>
+                    <div className='flex flex-wrap items-start gap-4 lg:mt-12 mt-2 py-6 lg:py-12  px-5 justify-between'>
+                        <div className='rounded-md overflow-hidden lg:w-1/2 h-full '>
+                            <Image
+                                src='/assets/talent.jpeg'
+                                width={450}
+                                height={450}
+                                className='w-full h-full object-cover'
+                                alt='talent'
+                            />
+                        </div>
+                        <div className='flex flex-col gap-3 max-w-[550px] w-full'>
+                            <h2 className='font-montserrat text-2xl font-bold'>
+                                Access Top-Tier Global Expertise
+                            </h2>
+                            <p className=' montserrat text-base'>
+                                As your team&apos;s expert partner, we will
+                                collaborate with you to grasp your objectives,
+                                technical requirements, and team dynamics.
+                                Within days, we&apos;ll connect you with the
+                                perfect talent for your project and ensure they
+                                are poised for success.
+                            </p>
+                            <ul className='pl-5 flex-col flex gap-3'>
+                                <li className='flex items-start gap-4'>
+                                    <span className='rounded-full bg-secondary flex-shrink-0 grid place-items-center size-5 text-primary'>
+                                        <IoCheckmark className='' />
+                                    </span>
+                                    <span>
+                                        Collaborate with Industry Leaders
+                                    </span>
+                                </li>
+                                <li className='flex items-start gap-4'>
+                                    <span className='rounded-full bg-secondary flex-shrink-0 grid place-items-center size-5 text-primary'>
+                                        <IoCheckmark className='' />
+                                    </span>
+                                    <span>
+                                        Partner with Specially-Selected Experts
+                                    </span>
+                                </li>
+                                <li className='flex items-start gap-4'>
+                                    <span className='rounded-full bg-secondary flex-shrink-0 grid place-items-center size-5 text-primary'>
+                                        <IoCheckmark className='' />
+                                    </span>
+                                    <span>The Perfect Match, Assured</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+                    <div className='flex flex-wrap lg:flex-row-reverse items-start lg:mt-12 gap-4 mt-2 py-6 lg:py-12  px-5 justify-between'>
+                        <div className='rounded-md overflow-hidden lg:w-1/2 h-full '>
+                            <Image
+                                src='/assets/network.jpeg'
+                                width={450}
+                                height={450}
+                                className='w-full h-full object-cover'
+                                alt='talent'
+                            />
+                        </div>
+                        <div className='flex flex-col gap-3 max-w-[550px] w-full'>
+                            <h2 className='font-montserrat text-2xl font-bold'>
+                                Crafted by Founders for Agile Entrepreneurs
+                            </h2>
+                            <p className=' montserrat text-base'>
+                                Our applicant network undergoes thorough testing
+                                and vetting. Thanks to our meticulous and
+                                proactive approach, we achieve a 98% success
+                                rate from trial to hire.
+                            </p>
+                            <Button className='bg-secondary text-primary w-fit font-semibold flex gap-3 items-center rounded-[18px]'>
+                                Work with Us
+                                <MdOutlineArrowOutward />
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <section className='container mx-auto px-4 mt-16 flex flex-col items-center'>
+                <div className='flex flex-col items-center gap-4'>
+                    <div className='max-w-[550px] w-full'>
+                        <h2 className='font-montserrat text-2xl lg:text-3xl  font-bold text-center '>
+                            Why Choose Us
+                        </h2>
+                        <p className='montserrat text-base text-center mt-2'>
+                            We integrate as an expert within your team,
+                            collaborating closely to comprehend your goals,
+                            operational requirements, and team dynamics.
+                        </p>
+                    </div>
+                    <div className='flex w-full justify-center items-stretch gap-4'>
+                        {team.map((member) => (
+                            <Card
+                                className='flex flex-col group relative overflow-hidden justify-end py-2  shadow-md gap-3 lg:w-[450px] h-[450px] w-full'
+                                key={member.name}
+                            >
+                                <Image
+                                    src={member.img}
+                                    fill
+                                    className='w-full h-full  overflow-hidden object-cover'
+                                    alt={member.name}
+                                />
+                                <div className='flex-col flex relative text-center drop-shadow-sm'>
+                                    <h3 className='text-xl font-bold font-montserrat  mt-2'>
+                                        {member.name}
+                                    </h3>
+                                    <p className='text-base '>
+                                        {member.designation}
+                                    </p>
+                                </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+                                <div className='absolute w-full h-full overflow-y-auto drop-shadow-sm top-full group-hover:top-0 bg-black/75 p-3 backdrop-blur-md text-base duration-700 left-0'>
+                                    <p className='text-secondary text-justify p-4 font-montserrat text-base'>
+                                        {member.content}
+                                    </p>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
