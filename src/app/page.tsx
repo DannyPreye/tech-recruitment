@@ -15,6 +15,8 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel";
 
 export default function Home() {
@@ -154,9 +156,12 @@ export default function Home() {
                                         <Card className='flex flex-col group relative overflow-hidden justify-end py-2  shadow-md gap-3 lg:w-[450px] h-[450px] w-full'>
                                             <Image
                                                 src={member.img}
-                                                width={450}
-                                                height={450}
-                                                className='w-full h-full absolute top-0 left-0  overflow-hidden object-cover'
+                                                fill
+                                                className={`w-full h-full ${
+                                                    member.name.toLowerCase() ===
+                                                        "oluwabusola" &&
+                                                    "object-top"
+                                                }  overflow-hidden object-cover`}
                                                 alt={member.name}
                                             />
                                             <div className='w-full h-full absolute top-0 left-0 bg-gradient-to-t from-gray-100 via-transparent to-transparent'></div>
@@ -178,6 +183,8 @@ export default function Home() {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
                         </Carousel>
                     </div>
                 </div>
