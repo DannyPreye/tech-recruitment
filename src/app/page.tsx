@@ -10,26 +10,12 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { FaQuoteLeft } from "react-icons/fa";
-
-const team = [
-    {
-        content: `
-    Victor is a product manager with a very keen obsession
-     for the growth of early stage startups in Africa. Clearly,
-     startups have become one of the key contributors and drivers
-     of Africa's modern economy however the early stages are the most
-     critical to their survival. He started his career in Management Consulting,
-      then product marketing before he fully made a transition into Technology.
-       As a product manager he has led product teams in Health-Tech, Fintech,
-       Prop-Tech and Sports-Tech in their early-stage phase. Outside leading product teams,
-       he is also an African Research Councilor at Wheeler Institute of Business and Technology,
-       London Business School and an Entrpreneur.
-  `,
-        designation: "Product Manager",
-        img: "/assets/victor.jpeg",
-        name: "Victor",
-    },
-];
+import { team } from "@/lib/team";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
 
 export default function Home() {
     return (
@@ -152,34 +138,47 @@ export default function Home() {
                             operational requirements, and team dynamics.
                         </p>
                     </div>
-                    <div className='flex w-full justify-center items-stretch gap-4'>
-                        {team.map((member) => (
-                            <Card
-                                className='flex flex-col group relative overflow-hidden justify-end py-2  shadow-md gap-3 lg:w-[450px] h-[450px] w-full'
-                                key={member.name}
-                            >
-                                <Image
-                                    src={member.img}
-                                    fill
-                                    className='w-full h-full  overflow-hidden object-cover'
-                                    alt={member.name}
-                                />
-                                <div className='flex-col flex relative text-center drop-shadow-sm'>
-                                    <h3 className='text-xl font-bold font-montserrat  mt-2'>
-                                        {member.name}
-                                    </h3>
-                                    <p className='text-base '>
-                                        {member.designation}
-                                    </p>
-                                </div>
+                    <div className=' w-full '>
+                        <Carousel
+                            opts={{
+                                align: "start",
+                            }}
+                            className='w-full '
+                        >
+                            <CarouselContent className='w-full py-6 px-2'>
+                                {team.map((member) => (
+                                    <CarouselItem
+                                        key={member.name}
+                                        className='md:basis-1/2 '
+                                    >
+                                        <Card className='flex flex-col group relative overflow-hidden justify-end py-2  shadow-md gap-3 lg:w-[450px] h-[450px] w-full'>
+                                            <Image
+                                                src={member.img}
+                                                width={450}
+                                                height={450}
+                                                className='w-full h-full absolute top-0 left-0  overflow-hidden object-cover'
+                                                alt={member.name}
+                                            />
+                                            <div className='w-full h-full absolute top-0 left-0 bg-gradient-to-t from-gray-100 via-transparent to-transparent'></div>
+                                            <div className='flex-col flex relative text-center drop-shadow-sm'>
+                                                <h3 className='text-xl font-bold font-montserrat  mt-2'>
+                                                    {member.name}
+                                                </h3>
+                                                <p className='text-base '>
+                                                    {member.designation}
+                                                </p>
+                                            </div>
 
-                                <div className='absolute w-full h-full overflow-y-auto drop-shadow-sm top-full group-hover:top-0 bg-black/75 p-3 backdrop-blur-md text-base duration-700 left-0'>
-                                    <p className='text-secondary text-justify p-4 font-montserrat text-base'>
-                                        {member.content}
-                                    </p>
-                                </div>
-                            </Card>
-                        ))}
+                                            <div className='absolute w-full h-full overflow-y-auto drop-shadow-sm top-full group-hover:top-0 bg-black/75 p-3 backdrop-blur-md text-base duration-700 left-0'>
+                                                <p className='text-secondary text-justify p-4 font-montserrat text-base'>
+                                                    {member.content}
+                                                </p>
+                                            </div>
+                                        </Card>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                        </Carousel>
                     </div>
                 </div>
             </section>
