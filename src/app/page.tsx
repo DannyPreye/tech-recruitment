@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MdOutlineArrowOutward } from "react-icons/md";
@@ -18,8 +19,12 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useState } from "react";
+import { MailDialog } from "@/components/MailDialog";
 
 export default function Home() {
+    const [showMailDialog, setShowMailDialog] = useState(false);
+
     return (
         <>
             <section className='container mx-auto px-4'>
@@ -34,13 +39,17 @@ export default function Home() {
                     </p>
                     <div className='flex justify-center mt-10 gap-4'>
                         <Button
+                            onClick={() => setShowMailDialog(true)}
                             variant={"outline"}
                             className=' flex gap-3 items-center  font-semibold rounded-[18px] '
                         >
                             Get Started
                             <MdOutlineArrowOutward />
                         </Button>
-                        <Button className='bg-primary text-secondary  font-semibold flex gap-3 items-center rounded-[18px] '>
+                        <Button
+                            onClick={() => setShowMailDialog(true)}
+                            className='bg-primary text-secondary  font-semibold flex gap-3 items-center rounded-[18px] '
+                        >
                             Learn More
                             <FaArrowRight />
                         </Button>
@@ -188,6 +197,10 @@ export default function Home() {
                         </Carousel>
                     </div>
                 </div>
+                <MailDialog
+                    onClose={() => setShowMailDialog(false)}
+                    open={showMailDialog}
+                />
             </section>
         </>
     );
