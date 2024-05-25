@@ -15,14 +15,18 @@ export async function POST(req: Request)
 
 
         const transporter = nodemailer.createTransport({
-            host: "mail.privateemail.com",
+            host: "server292.web-hosting.com",
             port: 465,
             secure: true,
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
             },
+            logger: true,
+            debug: true,
+
         });
+
         const mailOptions = {
             from: process.env.EMAIL,
             to: process.env.EMAIL,
@@ -69,7 +73,9 @@ export async function POST(req: Request)
                 </div>`,
         };
 
-        await transporter.sendMail(mailOptions);
+        const mail = await transporter.sendMail(mailOptions);
+
+        console.log("Email sent successfully", mail);
 
         return new NextResponse(
             JSON.stringify({

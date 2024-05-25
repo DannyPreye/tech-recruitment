@@ -64,6 +64,7 @@ export function MailDialog({ open, onClose }: Props) {
                         description:
                             "Thank you for your message. We will get back to you soon.",
                     });
+                    formik.resetForm();
                     onClose();
                 } else {
                     throw new Error("Failed to send message");
@@ -174,21 +175,26 @@ export function MailDialog({ open, onClose }: Props) {
                                 )}
                         </div>
                     </div>
-                    <DialogFooter className='flex justify-between items-center'>
-                        <Button
-                            type='button'
-                            onClick={onClose}
-                            variant={"outline"}
-                        >
-                            Close
-                        </Button>
-                        <Button disabled={formik.isSubmitting} type='submit'>
-                            {formik.isSubmitting ? (
-                                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                            ) : (
-                                "Send"
-                            )}
-                        </Button>
+                    <DialogFooter className=''>
+                        <div className='flex justify-between flex-nowrap gap-8 items-center'>
+                            <Button
+                                type='button'
+                                onClick={onClose}
+                                variant={"outline"}
+                            >
+                                Close
+                            </Button>
+                            <Button
+                                disabled={formik.isSubmitting}
+                                type='submit'
+                            >
+                                {formik.isSubmitting ? (
+                                    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                                ) : (
+                                    "Send"
+                                )}
+                            </Button>
+                        </div>
                     </DialogFooter>
                 </form>
             </DialogContent>
